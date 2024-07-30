@@ -13,6 +13,7 @@ const Message = require('./models/MessageModel')
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server,{cors: { origin: '*' }})
+const PORT = process.env.PORT;
 
 //Middleware
 app.use(express.urlencoded({extended: true}))
@@ -100,6 +101,6 @@ text: `${user.name} has left`})
 })
 })
 
-server.listen(5000, ()=> console.log('server started ............'))
+server.listen(PORT, ()=> console.log('server started ............'))
 
 
