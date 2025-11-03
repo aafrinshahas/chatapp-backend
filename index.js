@@ -18,7 +18,13 @@ const PORT = process.env.PORT;
 //Middleware
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
-app.use(cors())
+// app.use(cors())
+
+app.use(cors({
+  origin: ["https://chat-app-beryl-three.vercel.app"],
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 
 //Database
 connectDatabase();
